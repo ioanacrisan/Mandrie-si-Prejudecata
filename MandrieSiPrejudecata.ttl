@@ -1,0 +1,189 @@
+@prefix :<http://CrisanNarita.ro#>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix  rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix  xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+
+dbr:Pride_and_Prejudice     a :Book;
+                            :rdfs:label "Mandrie si Prejudecata";
+                            :scrisaDe  dbr:Jane_Austen;
+                            :surprinde :OrgoliuDeClasa, :Prejudecata.
+                            
+:OrgoliuDeClasa             a :Characteristic ;
+                            :rdfs:label "Orgoliu de clasa".
+
+:Prejudecata                a :Characteristic ;
+                            :rdfs:label "Prejudecata".
+
+:Darcy                     :are :OrgoliuDeClasa.
+
+dbr:Elizabeth_Bennet        :are :Prejudecata.
+
+
+
+:Darcy                      a :Person ;
+                            :rdfs:label "Domnul Darcy";
+                            :prietenPe  :Bingley, :Hurst.
+                    
+:Hurst                      a :Person ;
+                            :rdfs:label "Hurst";
+                            :fratePe  :Bingley.
+
+
+                            
+dbr:Bennet_family           a :Family ;  
+                            :rdfs:label "Familia Bennet";
+                            :formataDin :DomnulBennet, :DoamnaBennet, :Jane, dbr:Elizabeth_Bennet , :Mary, :Kitty, :Lydia.	        
+ 
+:DomnulBennet               a :Person ;
+                            :rdfs:label "Domnul Bennet".
+ 
+:DoamnaBennet               a :Person ;
+                            :rdfs:label "Doamna Bennet".                            
+
+:Jane                       a :Person ;
+                            :rdfs:label "Jane".
+
+dbr:Elizabeth_Bennet        a :Person ;
+                            :rdfs:label "Elizabeth".
+
+:Mary                       a :Person ;
+                            :rdfs:label "Mary".
+
+:Kitty                      a :Person ;
+                            :rdfs:label "Kitty".
+
+:Lydia                      a :Person ;
+                            :rdfs:label "Lydia".
+
+
+
+:Bingley                    a :Person ;
+                            :rdfs:label "Domnul Bingley";
+                            :este :burlacBogat;
+                            :inchiriaza :Mosie.
+
+:Mosie                      a :Location ;
+                            :rdfs:label "Mosie";
+                            :localizataIn :Longbourn;
+                            :inVecinatate dbr:Bennet_family.
+                           
+:Longbourn                  a :Location ;
+                            :rdfs:label "Longbourn";
+                            :localizataIn :Hertforshire.
+
+:Hertforshire               a :Location ;
+                            :rdfs:label "Hertforshire".
+
+
+:Bingley                    :indragitDe :Comunitatea;
+                            :este :FireDeschisa.
+                            
+:Comunitatea                a :Persons ;
+                            :rdfs:label "Comunitatea";
+                            :LocalizataIn :Hertforshire.
+
+:Darcy                      :este :frumos, :bogat, :antipatizat;
+                            :are :comportamentAntisocial.
+
+
+
+:Vizita                     a :Meeting ;
+                            :rdfs:label "Vizita";
+                            :la :Matusa;
+                            :facutaDe dbr:Elizabeth_Bennet.
+            
+:Matusa                     a :Person ;
+                            :rdfs:label "Matusa";
+                            :localizataIn :Merryton.
+                           
+dbr:Elizabeth_Bennet        :apropiataDe :Darcy.
+
+:Darcy                      :marturiseste :iubirea.
+
+:iubirea                     a :Feeling ;
+                             :rdfs:label "Iubirea". 
+
+:Lydia                       :casatoritaCu :Wickham.
+
+:Jane                        :casatoritaCu :Bingley;
+                             :casatoritaIn :toamna.
+
+:toamna                      a :Season ;
+                            :rdfs:label "Toamna". 
+
+
+dbr:Elizabeth_Bennet         :casatoritaCu :Darcy.
+
+:Wickham                      a :Person ;
+                              :rdfs:label "Wickham".
+        
+
+
+
+:Darcy                        :este :celibatar, :mandru.
+
+:celibatar                    a :Characteristic ;
+                              :rdfs:label "Celibatar". 
+
+:mandru                       a :Characteristic ;
+                              :rdfs:label "Mandru".
+
+
+
+
+:scrisaDe    rdfs:domain :Book;
+             rdfs:range  :Person.
+
+:surprinde   rdfs:domain :Book;
+             rdfs:range  :Characteristic.
+
+:are         rdfs:domain :Person;
+             rdfs:range  :Characteristic.
+
+:prietenPe      rdfs:domain :Person;
+                        rdfs:range  :Person.	
+
+:fratePe        rdfs:domain :Person;
+                rdfs:range  :Person.
+
+:formataDin     rdfs:domain :Family;
+                rdfs:range  :Person.
+
+:este           rdfs:domain :Person;
+                rdfs:range  :Characteristic.
+
+:inchiriaza       rdfs:domain :Person;
+                  rdfs:range  :Location.  
+                  
+                  
+:localizataIn   rdfs:domain :Location, :Persons, :Person;
+                rdfs:range  :Location. 
+
+:inVecinatate     rdfs:domain :Location;
+                  rdfs:range  :Family.  
+                  
+:indragitDe       rdfs:domain :Person;
+                  rdfs:range  :Persons.
+
+
+:la               rdfs:domain :Meeting;
+                  rdfs:range  :Person.
+
+:facutaDe        rdfs:domain :Meeting;
+                 rdfs:range  :Person.
+
+
+:apropiataDe   rdfs:domain :Person;
+               rdfs:range  :Person.
+
+:marturiseste   rdfs:domain :Person;
+                rdfs:range  :Feeling.
+
+:casatoritaCu   rdfs:domain :Person;
+                rdfs:range  :Person.
+
+:casatoritaIn  rdfs:domain :Person;
+               rdfs:range  :Season.
+                
